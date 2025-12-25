@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question AI - Your Smart Study Assistant</title>
+    
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <button class="sidebar-close" id="closeSidebarBtn">×</button>
+            <h2>Menu</h2>
+            <p>Explore all features</p>
+        </div>
+        
+        <div class="sidebar-menu">
+            <div class="menu-section">
+                <div class="menu-section-title">Connect</div>
+                <div class="menu-item" data-action="youtube">
+                    <span class="menu-item-icon">▶️</span>
+                    <span class="menu-item-text">YouTube Channel</span>
+                    <span class="menu-item-badge">NEW</span>
+                </div>
+                <div class="menu-item" data-action="tiktok">
+                    <span class="menu-item-icon">🎵</span>
+                    <span class="menu-item-text">TikTok</span>
+                </div>
+                <div class="menu-item" data-action="facebook">
+                    <span class="menu-item-icon">👥</span>
+                    <span class="menu-item-text">Facebook</span>
+                </div>
+                <div class="menu-item" data-action="whatsapp">
+                    <span class="menu-item-icon">💬</span>
+                    <span class="menu-item-text">WhatsApp Channel</span>
+                </div>
+                <div class="menu-item" data-action="instagram">
+                    <span class="menu-item-icon">📸</span>
+                    <span class="menu-item-text">Instagram</span>
+                </div>
+                <div class="menu-item" data-action="twitter">
+                    <span class="menu-item-icon">🐦</span>
+                    <span class="menu-item-text">Twitter</span>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <div class="menu-section-title">Information</div>
+                <div class="menu-item" data-action="about">
+                    <span class="menu-item-icon">ℹ️</span>
+                    <span class="menu-item-text">About Us</span>
+                </div>
+                <div class="menu-item" data-action="howitworks">
+                    <span class="menu-item-icon">❓</span>
+                    <span class="menu-item-text">How it Works</span>
+                </div>
+                <div class="menu-item" data-action="features">
+                    <span class="menu-item-icon">⭐</span>
+                    <span class="menu-item-text">Features</span>
+                </div>
+                <div class="menu-item" data-action="privacy">
+                    <span class="menu-item-icon">🔒</span>
+                    <span class="menu-item-text">Privacy Policy</span>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <div class="menu-section-title">Support</div>
+                <div class="menu-item" data-action="contact">
+                    <span class="menu-item-icon">📧</span>
+                    <span class="menu-item-text">Contact Us</span>
+                </div>
+                <div class="menu-item" data-action="feedback">
+                    <span class="menu-item-icon">💭</span>
+                    <span class="menu-item-text">Send Feedback</span>
+                </div>
+                <div class="menu-item" data-action="bug">
+                    <span class="menu-item-icon">🐛</span>
+                    <span class="menu-item-text">Report a Bug</span>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <div class="menu-section-title">More</div>
+                <div class="menu-item" data-action="moreai">
+                    <span class="menu-item-icon">🤖</span>
+                    <span class="menu-item-text">More AI Tools</span>
+                    <span class="menu-item-badge">SOON</span>
+                </div>
+                <div class="menu-item" data-action="premium">
+                    <span class="menu-item-icon">👑</span>
+                    <span class="menu-item-text">Premium Version</span>
+                    <span class="menu-item-badge">SOON</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="comingSoonModal">
+        <div class="modal-content">
+            <div class="modal-icon">🚀</div>
+            <h2 class="modal-title" id="modalTitle">Coming Soon!</h2>
+            <p class="modal-text">We're working hard to bring you this amazing feature. Stay tuned!</p>
+            <button class="modal-close-btn" id="modalCloseBtn">Got it!</button>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <button class="menu-btn" id="menuBtn">☰</button>
+                <a href="#" class="logo">
+                    <span class="logo-icon">🎓</span>
+                    <div class="logo-text">
+                        <h1>Question AI</h1>
+                        <p>Your Smart Study Assistant</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Ad banner removed for clean experience -->
+        
+        <div class="chat-area" id="chatArea">
+            <div class="welcome-screen" id="welcomeScreen">
+                <h2>Ask Anything, Learn Everything</h2>
+                <p>Your AI-powered study companion</p>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">📐</div>
+                        <h3>Math & Science</h3>
+                        <p>Step-by-step solutions</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>All Subjects</h3>
+                        <p>Physics, Chemistry, Biology, English, Urdu</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📷</div>
+                        <h3>Image Recognition</h3>
+                        <p>Upload photos for instant answers</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Real-time</h3>
+                        <p>Like ChatGPT streaming</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="messagesContainer"></div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea 
+                    id="questionInput" 
+                    class="input-textarea" 
+                    placeholder="Ask anything..."
+                    rows="1"
+                ></textarea>
+                <div class="input-actions">
+                    <button class="action-btn" id="imageBtn" title="Upload Image">📷</button>
+                    <button class="action-btn send-btn" id="sendBtn" title="Send Message">➤</button>
+                    <button class="action-btn stop-btn" id="stopBtn" style="display:none;" title="Stop Generation">⏹</button>
+                </div>
+                <input type="file" id="imageInput" accept="image/*">
+            </div>
+            <div id="imagePreviewContainer" style="display: none; margin-top: 12px;"></div>
+        </div>
+    </div>
+
+    <script src="stream.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

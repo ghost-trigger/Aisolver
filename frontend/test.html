@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <h1>Testing Scripts</h1>
+    <button onclick="testFunction()">Test</button>
+    <div id="result"></div>
+
+    <script src="stream.js"></script>
+    <script>
+        function testFunction() {
+            if (typeof streamAnswer === 'function') {
+                document.getElementById('result').innerHTML = '✅ streamAnswer function EXISTS!';
+            } else {
+                document.getElementById('result').innerHTML = '❌ streamAnswer function NOT FOUND!';
+            }
+        }
+        
+        // Auto test on load
+        window.onload = testFunction;
+    </script>
+</body>
+</html>
